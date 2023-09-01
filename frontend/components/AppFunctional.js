@@ -12,8 +12,8 @@ export default function AppFunctional(props) {
   // You can delete them and build your own logic from scratch.
 
   const gridArray = 
-    [[1,1], [1,2], [1,3],
-     [2,1], [2,2], [2,3],
+    [[1,1], [2,1], [3,1],
+     [1,2], [2,2], [3,2],
      [3,1], [3,2], [3,3]];
 
   const [currentIdx, setCurrentIdx] = useState(initialIndex);
@@ -30,16 +30,16 @@ export default function AppFunctional(props) {
 
   function getNextIndex(dir) {
     if(dir === 'left'){
-      gridArray[currentIdx][1] === 1 ? setCurrentMessage("You can't go left") : move(-1);
+      gridArray[currentIdx][0] === 1 ? setCurrentMessage("You can't go left") : move(-1);
     }
     else if(dir === 'up'){
-      gridArray[currentIdx][0] === 1 ? setCurrentMessage("You can't go up") : move(-3);
+      gridArray[currentIdx][1] === 1 ? setCurrentMessage("You can't go up") : move(-3);
     }
     else if(dir === 'right'){
-      gridArray[currentIdx][1] === 3 ? setCurrentMessage("You can't go right") : move(1);
+      gridArray[currentIdx][0] === 3 ? setCurrentMessage("You can't go right") : move(1);
     }
     else if(dir === 'down'){
-      gridArray[currentIdx][0] === 3 ? setCurrentMessage("You can't go down") : move(3);
+      gridArray[currentIdx][1] === 3 ? setCurrentMessage("You can't go down") : move(3);
     }
   }
 
