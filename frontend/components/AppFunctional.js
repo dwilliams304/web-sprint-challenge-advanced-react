@@ -11,10 +11,11 @@ export default function AppFunctional(props) {
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
   // You can delete them and build your own logic from scratch.
 
-  const gridArray = 
-    [[1,1], [2,1], [3,1],
-     [1,2], [2,2], [3,2],
-     [3,1], [3,2], [3,3]];
+  const gridArray = [
+    [1,1], [2,1], [3,1],
+    [1,2], [2,2], [3,2],
+    [1,3], [2,3], [3,3]
+  ];
 
   const [currentIdx, setCurrentIdx] = useState(initialIndex);
   const [currentSteps, setCurrentSteps] = useState(initialSteps);
@@ -26,6 +27,7 @@ export default function AppFunctional(props) {
     setCurrentIdx(initialIndex);
     setCurrentSteps(initialSteps);
     setCurrentMessage(initialMessage);
+    setEmailInputValue(initialEmail);
   }
 
   function getNextIndex(dir) {
@@ -76,7 +78,7 @@ export default function AppFunctional(props) {
     <div id="wrapper" className={props.className}>
       <div className="info">
         <h3 id="coordinates">Coordinates ({gridArray[currentIdx].toString()})</h3>
-        <h3 id="steps">You moved {currentSteps} times</h3>
+        <h3 id="steps">You moved {currentSteps} time{currentSteps === 1 ? '' : 's'}</h3>
       </div>
       <div id="grid">
         {
